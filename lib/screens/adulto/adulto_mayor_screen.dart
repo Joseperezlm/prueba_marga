@@ -21,7 +21,7 @@ class _AdultoMayorScreenState extends State<AdultoMayorScreen> {
   bool _isLoading = false;
   List<dynamic> _misMedicamentos = [];
 
-  final String _baseUri = "http://192.168.1.155/derek_solutions_api/";
+  final String _baseUri = "http://10.180.182.89/derek_solutions_api/";
 
   @override
   void initState() {

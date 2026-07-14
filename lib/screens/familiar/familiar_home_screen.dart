@@ -24,7 +24,7 @@ class _FamiliarHomeScreenState extends State<FamiliarHomeScreen> {
   bool _isLoading = true;
   List<dynamic> _medicamentosAsignados = [];
 
-  final String _baseUri = "http://192.168.1.155/derek_solutions_api/";
+  final String _baseUri = "http://10.180.182.89/derek_solutions_api/";
 
   @override
   void initState() {

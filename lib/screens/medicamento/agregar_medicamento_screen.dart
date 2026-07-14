@@ -32,7 +32,7 @@ class _AgregarMedicamentoScreenState extends State<AgregarMedicamentoScreen> {
   TimeOfDay _horaSeleccionada = const TimeOfDay(hour: 8, minute: 0);
   int _recurrenciaHoras = 8;
 
-  final String _baseUri = "http://192.168.1.155/derek_solutions_api/";
+  final String _baseUri = "http://10.180.182.89/derek_solutions_api/";
   
   // Instancia local de notificaciones
   final FlutterLocalNotificationsPlugin _notificacionesPlugin = FlutterLocalNotificationsPlugin();
@@ -219,7 +219,6 @@ class _AgregarMedicamentoScreenState extends State<AgregarMedicamentoScreen> {
         final data = jsonDecode(response.body);
         if (data['success'] == true) {
           
-          // CORRECCIÓN PROTECTORA: Evitamos excepciones de casteo usando .toString() antes del parseo
           int medicamentoId = 0;
           if (_isEditing) {
             medicamentoId = int.tryParse(widget.medicamento!['id'].toString()) ?? 0;
@@ -227,14 +226,25 @@ class _AgregarMedicamentoScreenState extends State<AgregarMedicamentoScreen> {
             medicamentoId = int.tryParse(data['medicamento_id'].toString()) ?? 0;
           }
 
-          // Programar las alertas locales
-          await _programarNotificacionesMedicamento(
-            id: medicamentoId,
-            nombreMedicamento: _nombreMedController.text.trim(),
-            dosis: _dosisController.text.trim(),
-            horaInicio: _horaSeleccionada,
-            frecuenciaHoras: _recurrenciaHoras,
-          );
+          // CAPA PROTECTORA CONTRA FALLOS NATIVOS DE NOTIFICACIÓN
+          try {
+            if (_isEditing) {
+              await _notificacionesPlugin.cancel(medicamentoId);
+              for (int i = 0; i < 5; i++) {
+                await _notificacionesPlugin.cancel(medicamentoId + (i * 10000));
+              }
+            }
+
+            await _programarNotificacionesMedicamento(
+              id: medicamentoId,
+              nombreMedicamento: _nombreMedController.text.trim(),
+              dosis: _dosisController.text.trim(),
+              horaInicio: _horaSeleccionada,
+              frecuenciaHoras: _recurrenciaHoras,
+            );
+          } catch (eNotif) {
+            print("⚠️ Error capturado en alertas locales: $eNotif");
+          }
 
           _showSnackbar(
             _isEditing ? "¡Medicamento e historial de alertas actualizados!" : "¡Medicamento y alertas sincronizados!", 
@@ -249,8 +259,8 @@ class _AgregarMedicamentoScreenState extends State<AgregarMedicamentoScreen> {
         _showSnackbar("Error en el servidor: ${response.statusCode}", Colors.redAccent);
       }
     } catch (e) {
-      print("🚨 Error capturado en Flutter: $e");
-      _showSnackbar("Fallo al actualizar las alertas locales", Colors.redAccent);
+      print("🚨 Error crítico capturado en Flutter: $e");
+      _showSnackbar("Fallo crítico interno en la aplicación", Colors.redAccent);
     } finally {
       setState(() { _isSaving = false; });
     }

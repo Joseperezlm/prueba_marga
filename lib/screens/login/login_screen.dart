@@ -25,7 +25,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _obscurePassword = true;
 
   // IP LOCAL UNIFICADA DE TU XAMPP (Asegura conectividad global)
-  final String _loginUrl = "http://192.168.1.155/derek_solutions_api/login.php";
+  final String _loginUrl = "http://10.180.182.89/derek_solutions_api/login.php";
 
   Future<void> _handleLogin() async {
     if (!_formKey.currentState!.validate()) return;
