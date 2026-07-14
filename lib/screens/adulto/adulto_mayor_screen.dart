@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart'; // Asegúrate de agregar este plugin en pubspec.yaml
 
 class AdultoMayorScreen extends StatefulWidget {
-  const AdultoMayorScreen({Key? key}) : super(key: key);
+  const AdultoMayorScreen({super.key});
 
   @override
   _AdultoMayorScreenState createState() => _AdultoMayorScreenState();
@@ -360,7 +360,7 @@ class _AdultoMayorScreenState extends State<AdultoMayorScreen> {
       child: Container(
         width: double.infinity,
         padding: const EdgeInsets.symmetric(vertical: 18),
-        decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(16), boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.2), blurRadius: 4, offset: const Offset(0, 2))]),
+        decoration: BoxDecoration(color: color, borderRadius: BorderRadius.circular(16), boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.2), blurRadius: 4, offset: const Offset(0, 2))]),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [

@@ -11,10 +11,10 @@ class FamiliarHomeScreen extends StatefulWidget {
   final String nombreFamiliar;
 
   const FamiliarHomeScreen({
-    Key? key,
+    super.key,
     required this.familiarId,
     required this.nombreFamiliar,
-  }) : super(key: key);
+  });
 
   @override
   _FamiliarHomeScreenState createState() => _FamiliarHomeScreenState();
@@ -271,8 +271,8 @@ class _FamiliarHomeScreenState extends State<FamiliarHomeScreen> {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: color.withOpacity(0.3), width: 1.5),
-          boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.04), blurRadius: 6, offset: const Offset(0, 2))],
+          border: Border.all(color: color.withValues(alpha: 0.3), width: 1.5),
+          boxShadow: [BoxShadow(color: Colors.black.withValues(alpha: 0.04), blurRadius: 6, offset: const Offset(0, 2))],
         ),
         child: Column(
           children: [
@@ -332,7 +332,7 @@ class _FamiliarHomeScreenState extends State<FamiliarHomeScreen> {
                   child: Row(
                     children: [
                       Icon(Icons.edit, color: Colors.orange, size: 20),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       Text("Editar"),
                     ],
                   ),
@@ -342,7 +342,7 @@ class _FamiliarHomeScreenState extends State<FamiliarHomeScreen> {
                   child: Row(
                     children: [
                       Icon(Icons.delete, color: Colors.red, size: 20),
-                      const SizedBox(width: 8),
+                      SizedBox(width: 8),
                       Text("Eliminar", style: TextStyle(color: Colors.red)),
                     ],
                   ),

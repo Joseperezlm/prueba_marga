@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class RegistroScreen extends StatefulWidget {
-  const RegistroScreen({Key? key}) : super(key: key);
+  const RegistroScreen({super.key});
 
   @override
   _RegistroScreenState createState() => _RegistroScreenState();

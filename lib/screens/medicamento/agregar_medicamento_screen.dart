@@ -9,10 +9,10 @@ class AgregarMedicamentoScreen extends StatefulWidget {
   final Map<String, dynamic>? medicamento; 
 
   const AgregarMedicamentoScreen({
-    Key? key, 
+    super.key, 
     required this.familiarId, 
     this.medicamento, 
-  }) : super(key: key);
+  });
 
   @override
   _AgregarMedicamentoScreenState createState() => _AgregarMedicamentoScreenState();
@@ -301,7 +301,7 @@ class _AgregarMedicamentoScreenState extends State<AgregarMedicamentoScreen> {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     DropdownButtonFormField<int>(
-                      value: valorDropdownSeguro, 
+                      initialValue: valorDropdownSeguro, 
                       decoration: const InputDecoration(
                         labelText: "Asignar al Adulto Mayor",
                         border: OutlineInputBorder(),
@@ -343,7 +343,7 @@ class _AgregarMedicamentoScreenState extends State<AgregarMedicamentoScreen> {
                     const SizedBox(height: 20),
 
                     DropdownButtonFormField<int>(
-                      value: valorRecurrenciaSeguro, 
+                      initialValue: valorRecurrenciaSeguro, 
                       decoration: const InputDecoration(labelText: "Frecuencia de repetición", border: OutlineInputBorder(), prefixIcon: Icon(Icons.repeat)),
                       items: horasPermitidas.map((int value) {
                         return DropdownMenuItem<int>(

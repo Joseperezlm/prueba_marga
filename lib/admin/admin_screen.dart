@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
 class AdminScreen extends StatefulWidget {
-  const AdminScreen({Key? key}) : super(key: key);
+  const AdminScreen({super.key});
 
   @override
   State<AdminScreen> createState() => _AdminScreenState();

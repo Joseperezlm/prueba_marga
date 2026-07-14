@@ -4,7 +4,7 @@ import 'dart:convert';
 
 class GenerarCodigoScreen extends StatefulWidget {
   final int familiarId;
-  const GenerarCodigoScreen({Key? key, required this.familiarId}) : super(key: key);
+  const GenerarCodigoScreen({super.key, required this.familiarId});
 
   @override
   _GenerarCodigoScreenState createState() => _GenerarCodigoScreenState();
@@ -113,7 +113,7 @@ class _GenerarCodigoScreenState extends State<GenerarCodigoScreen> {
                 elevation: 0,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(12), 
-                  side: BorderSide(color: Colors.blue.withOpacity(0.3))
+                  side: BorderSide(color: Colors.blue.withValues(alpha: 0.3))
                 ),
                 child: Padding(
                   padding: const EdgeInsets.all(16.0),
