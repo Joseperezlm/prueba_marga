@@ -13,7 +13,8 @@ class _AdminScreenState extends State<AdminScreen> {
   bool isLoading = true;
   List<dynamic> vinculaciones = [];
 
-  final String baseUri = "http://10.180.182.89/derek_solutions_api/";
+  //final String baseUri = "http://10.180.182.89/derek_solutions_api/";
+  final String baseUri = "http://192.168.1.155/derek_solutions_api/";
 
   @override
   void initState() {

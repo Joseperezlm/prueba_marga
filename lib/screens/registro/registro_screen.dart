@@ -19,7 +19,9 @@ class _RegistroScreenState extends State<RegistroScreen> {
   bool _obscurePassword = true;
 
   // Cambia esta IP por la de tu servidor local actual
-  final String _apiUrl = "http://10.180.182.89/derek_solutions_api/registrar_familiar.php";
+  //final String _apiUrl = "http://10.180.182.89/derek_solutions_api/registrar_familiar.php";
+  
+  final String _apiUrl = "http://192.168.1.155/derek_solutions_api/registrar_familiar.php";
 
   Future<void> _registrarFamiliar() async {
     if (!_formKey.currentState!.validate()) return;

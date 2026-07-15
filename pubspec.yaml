@@ -13,7 +13,10 @@ dependencies:
   shared_preferences: ^2.2.2
   url_launcher: ^6.3.2
   flutter_local_notifications: ^18.0.1 # O la versión estable más reciente
+  permission_handler: ^11.0.1
   timezone: ^0.9.4
+  path_provider: ^2.1.1      # Para guardar archivos
+  share_plus: ^7.2.2         # Para compartir reportes
 dev_dependencies:
   flutter_test:
     sdk: flutter

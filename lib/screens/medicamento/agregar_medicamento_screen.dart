@@ -32,7 +32,8 @@ class _AgregarMedicamentoScreenState extends State<AgregarMedicamentoScreen> {
   TimeOfDay _horaSeleccionada = const TimeOfDay(hour: 8, minute: 0);
   int _recurrenciaHoras = 8;
 
-  final String _baseUri = "http://10.180.182.89/derek_solutions_api/";
+  //final String _baseUri = "http://10.180.182.89/derek_solutions_api/";
+  final String _baseUri = "http://192.168.1.155/derek_solutions_api/";
   
   // Instancia local de notificaciones
   final FlutterLocalNotificationsPlugin _notificacionesPlugin = FlutterLocalNotificationsPlugin();

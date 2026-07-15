@@ -15,7 +15,8 @@ class _GenerarCodigoScreenState extends State<GenerarCodigoScreen> {
   String _codigoGenerado = "";
   bool _isLoading = false;
 
-  final String _apiUrl = "http://10.180.182.89/derek_solutions_api/crear_vinculacion.php";
+  //final String _apiUrl = "http://10.180.182.89/derek_solutions_api/crear_vinculacion.php";
+  final String _apiUrl = "http://192.168.1.155/derek_solutions_api/crear_vinculacion.php";
 
   Future<void> _generarCodigo() async {
     if (_nombreAdultoController.text.trim().isEmpty) return;
